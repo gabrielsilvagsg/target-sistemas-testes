@@ -9,6 +9,8 @@ import com.google.gson.Gson;
 
 public class Main {
 
+    private static DecimalFormat currencyFormat = new DecimalFormat("###,###,###.##");
+
     public static void main(String[] args) {
         teste01();
         teste02();
@@ -72,8 +74,6 @@ public class Main {
         double otherRevenue = 19849.53;
 
         double totalRevenue = spRevenue + rjRevenue + mgRevenue + esRevenue + otherRevenue;
-
-        DecimalFormat currencyFormat = new DecimalFormat("###,###,###.##");
 
         System.out.println("Faturamento total: R$ " + currencyFormat.format(totalRevenue));
 
