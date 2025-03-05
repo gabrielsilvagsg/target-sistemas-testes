@@ -1,0 +1,39 @@
+# Maven target directory
+/target/
+
+# Eclipse IDE files
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# NetBeans IDE files
+/nbproject/private/
+/build/
+
+# VS Code files
+/.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Compiled files
+*.class
+
+# JAR, WAR, and EAR files
+*.jar
+*.war
+*.ear
+
+# Lombok config
+.lombok.config
