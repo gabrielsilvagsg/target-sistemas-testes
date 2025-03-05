@@ -10,7 +10,7 @@ import com.google.gson.Gson;
 
 public class Main {
 
-    private static DecimalFormat currencyFormat = new DecimalFormat("###,###,###.##");
+    private static final DecimalFormat currencyFormat = new DecimalFormat("###,###,###.##");
 
     public static void main(String[] args) {
         // Executa todos os testes sequencialmente
