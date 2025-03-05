@@ -2,6 +2,7 @@ package br.com.gabrielsilva.targetsistemas.testes;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 import com.google.gson.Gson;
@@ -12,6 +13,7 @@ public class Main {
         teste01();
         teste02();
         teste03();
+        teste04();
     }
 
     public static void teste01() {
@@ -54,6 +56,33 @@ public class Main {
         System.out.println("Dias acima da média: " + daysAboveAverage);
     }
 
+    public static void teste04() {
+        double spRevenue = 67836.43;
+        double rjRevenue = 36678.66;
+        double mgRevenue = 29229.88;
+        double esRevenue = 27165.48;
+        double otherRevenue = 19849.53;
+
+        double totalRevenue = spRevenue + rjRevenue + mgRevenue + esRevenue + otherRevenue;
+
+        DecimalFormat currencyFormat = new DecimalFormat("###,###,###.##");
+
+        System.out.println("Faturamento total: R$ " + currencyFormat.format(totalRevenue));
+
+        DecimalFormat percentageFormat = new DecimalFormat("0.0");
+
+        System.out.println(
+                "Percentual de SP: " + percentageFormat.format(calculatePercentage(spRevenue, totalRevenue)) + "%");
+        System.out.println(
+                "Percentual de RJ: " + percentageFormat.format(calculatePercentage(rjRevenue, totalRevenue)) + "%");
+        System.out.println(
+                "Percentual de MG: " + percentageFormat.format(calculatePercentage(mgRevenue, totalRevenue)) + "%");
+        System.out.println(
+                "Percentual de ES: " + percentageFormat.format(calculatePercentage(esRevenue, totalRevenue)) + "%");
+        System.out.println("Percentual de Outros: "
+                + percentageFormat.format(calculatePercentage(otherRevenue, totalRevenue)) + "%");
+    }
+
     public static boolean pertenceAFibonacci(int numero) {
         int primeiro = 0, segundo = 1;
 
@@ -70,7 +99,7 @@ public class Main {
         return segundo == numero;
     }
 
-     public static double[] readRevenueFromJson(String filePath) {
+    public static double[] readRevenueFromJson(String filePath) {
         try (FileReader reader = new FileReader(filePath)) {
             Gson gson = new Gson();
             return gson.fromJson(reader, double[].class);
@@ -123,5 +152,9 @@ public class Main {
             }
         }
         return days;
+    }
+
+    public static double calculatePercentage(double revenue, double totalRevenue) {
+        return (revenue / totalRevenue) * 100;
     }
 }
