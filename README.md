@@ -23,9 +23,9 @@ Número gerado: 8
 
 ------------------Teste 03-------------------------
 
-Menor faturamento: R$373,78                            
-Maior faturamento: R$48.924,24                           
-Média de faturamento: R$20.865,37                           
+Menor faturamento: R$ 373,78                            
+Maior faturamento: R$ 48.924,24                           
+Média de faturamento: R$ 20.865,37                           
 Dias acima da média: 10                            
 
 ------------------Teste 04-------------------------

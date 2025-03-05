@@ -75,9 +75,9 @@ public class Main {
         int daysAboveAverage = countDaysAboveAverage(faturamentos, averageRevenue);
 
         // Exibe os resultados
-        System.out.println("Menor faturamento: R$" + currencyFormat.format(lowestRevenue));
-        System.out.println("Maior faturamento: R$" + currencyFormat.format(highestRevenue));
-        System.out.println("Média de faturamento: R$" + currencyFormat.format(averageRevenue));
+        System.out.println("Menor faturamento: R$ " + currencyFormat.format(lowestRevenue));
+        System.out.println("Maior faturamento: R$ " + currencyFormat.format(highestRevenue));
+        System.out.println("Média de faturamento: R$ " + currencyFormat.format(averageRevenue));
         System.out.println("Dias acima da média: " + daysAboveAverage);
         System.out.println("----------------------------------------------------");
     }
