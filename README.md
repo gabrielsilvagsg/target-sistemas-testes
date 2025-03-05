@@ -1,5 +1,16 @@
-Saída:
+# Target Sistemas - Testes de Desenvolvimento
 
+Este projeto contém uma série de testes de desenvolvimento realizados para a vaga de desenvolvedor na **Target Sistemas**. Os testes abrangem diferentes funcionalidades, como manipulação de dados financeiros, cálculos matemáticos, verificação de números na sequência de Fibonacci e manipulação de strings.
+
+## Tecnologias Utilizadas
+
+- **Java 17**
+- **Maven** (para gerenciamento de dependências)
+- **Gson** (para manipulação de JSON)
+
+
+
+# Saída:
 ------------------Teste 01-------------------------
 
 Soma total: 91
