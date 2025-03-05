@@ -3,6 +3,7 @@ package br.com.gabrielsilva.targetsistemas.testes;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.List;
 import java.util.Random;
 
 import com.google.gson.Gson;
@@ -51,12 +52,13 @@ public class Main {
 
     public static void teste03() {
         System.out.println("------------------Teste 03-------------------------");
-        double[] revenues = readRevenueFromJson("src/main/resources/faturamento.json");
+        
+        List<FaturamentoDia> faturamentos = readRevenueFromJson("src/main/resources/faturamento.json");
 
-        double lowestRevenue = getLowestRevenue(revenues);
-        double highestRevenue = getHighestRevenue(revenues);
-        double averageRevenue = getAverageRevenue(revenues);
-        int daysAboveAverage = countDaysAboveAverage(revenues, averageRevenue);
+        double lowestRevenue = getLowestRevenue(faturamentos);
+        double highestRevenue = getHighestRevenue(faturamentos);
+        double averageRevenue = getAverageRevenue(faturamentos);
+        int daysAboveAverage = countDaysAboveAverage(faturamentos, averageRevenue);
 
         System.out.println("Menor faturamento: R$" + currencyFormat.format(lowestRevenue));
         System.out.println("Maior faturamento: R$" + currencyFormat.format(highestRevenue));
@@ -116,43 +118,44 @@ public class Main {
         return segundo == numero;
     }
 
-    public static double[] readRevenueFromJson(String filePath) {
+    public static List<FaturamentoDia> readRevenueFromJson(String filePath) {
         try (FileReader reader = new FileReader(filePath)) {
             Gson gson = new Gson();
-            return gson.fromJson(reader, double[].class);
+            // Lê o JSON e retorna uma lista de objetos FaturamentoDia
+            return List.of(gson.fromJson(reader, FaturamentoDia[].class));
         } catch (IOException e) {
             e.printStackTrace();
-            return new double[0];
+            return null;
         }
     }
 
-    public static double getLowestRevenue(double[] revenues) {
+    public static double getLowestRevenue(List<FaturamentoDia> faturamentos) {
         double lowest = Double.MAX_VALUE;
-        for (double revenue : revenues) {
-            if (revenue > 0 && revenue < lowest) {
-                lowest = revenue;
+        for (FaturamentoDia faturamento : faturamentos) {
+            if (faturamento.getValor() > 0 && faturamento.getValor() < lowest) {
+                lowest = faturamento.getValor();
             }
         }
         return lowest;
     }
 
-    public static double getHighestRevenue(double[] revenues) {
+    public static double getHighestRevenue(List<FaturamentoDia> faturamentos) {
         double highest = Double.MIN_VALUE;
-        for (double revenue : revenues) {
-            if (revenue > highest) {
-                highest = revenue;
+        for (FaturamentoDia faturamento : faturamentos) {
+            if (faturamento.getValor() > highest) {
+                highest = faturamento.getValor();
             }
         }
         return highest;
     }
 
-    public static double getAverageRevenue(double[] revenues) {
+    public static double getAverageRevenue(List<FaturamentoDia> faturamentos) {
         double sum = 0;
         int daysWithRevenue = 0;
 
-        for (double revenue : revenues) {
-            if (revenue > 0) {
-                sum += revenue;
+        for (FaturamentoDia faturamento : faturamentos) {
+            if (faturamento.getValor() > 0) {
+                sum += faturamento.getValor();
                 daysWithRevenue++;
             }
         }
@@ -160,11 +163,11 @@ public class Main {
         return daysWithRevenue > 0 ? sum / daysWithRevenue : 0;
     }
 
-    public static int countDaysAboveAverage(double[] revenues, double average) {
+    public static int countDaysAboveAverage(List<FaturamentoDia> faturamentos, double average) {
         int days = 0;
 
-        for (double revenue : revenues) {
-            if (revenue > average) {
+        for (FaturamentoDia faturamento : faturamentos) {
+            if (faturamento.getValor() > average) {
                 days++;
             }
         }
