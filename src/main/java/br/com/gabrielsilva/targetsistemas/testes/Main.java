@@ -18,6 +18,7 @@ public class Main {
     }
 
     public static void teste01() {
+        System.out.println("------------------Teste 01-------------------------");
         int INDICE = 13;
         int SOMA = 0;
         int K = 0;
@@ -28,9 +29,11 @@ public class Main {
         }
 
         System.out.println("Soma total: " + SOMA);
+        System.out.println("----------------------------------------------------");
     }
 
     public static void teste02() {
+        System.out.println("------------------Teste 02-------------------------");
         // Gerando um número aleatório ;)
         int numero = new Random().nextInt(31);
 
@@ -41,9 +44,11 @@ public class Main {
         } else {
             System.out.println(numero + " não pertence à sequência de Fibonacci.");
         }
+        System.out.println("----------------------------------------------------");
     }
 
     public static void teste03() {
+        System.out.println("------------------Teste 03-------------------------");
         double[] revenues = readRevenueFromJson("src/main/resources/faturamento.json");
 
         double lowestRevenue = getLowestRevenue(revenues);
@@ -55,9 +60,11 @@ public class Main {
         System.out.println("Maior faturamento: " + highestRevenue);
         System.out.println("Média de faturamento: " + averageRevenue);
         System.out.println("Dias acima da média: " + daysAboveAverage);
+        System.out.println("----------------------------------------------------");
     }
 
     public static void teste04() {
+        System.out.println("------------------Teste 04-------------------------");
         double spRevenue = 67836.43;
         double rjRevenue = 36678.66;
         double mgRevenue = 29229.88;
@@ -82,12 +89,15 @@ public class Main {
                 "Percentual de ES: " + percentageFormat.format(calculatePercentage(esRevenue, totalRevenue)) + "%");
         System.out.println("Percentual de Outros: "
                 + percentageFormat.format(calculatePercentage(otherRevenue, totalRevenue)) + "%");
+        System.out.println("----------------------------------------------------");
     }
 
     public static void teste05() {
+        System.out.println("------------------Teste 05-------------------------");
         String nome = "Gabriel";
         System.out.println("Nome: " + nome);
         System.out.println("Nome invertido: " + reverseString(nome));
+        System.out.println("----------------------------------------------------");
     }
 
     public static boolean pertenceAFibonacci(int numero) {
