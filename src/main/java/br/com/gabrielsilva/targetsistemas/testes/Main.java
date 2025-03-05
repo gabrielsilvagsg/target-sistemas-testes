@@ -14,6 +14,7 @@ public class Main {
         teste02();
         teste03();
         teste04();
+        teste05();
     }
 
     public static void teste01() {
@@ -81,6 +82,12 @@ public class Main {
                 "Percentual de ES: " + percentageFormat.format(calculatePercentage(esRevenue, totalRevenue)) + "%");
         System.out.println("Percentual de Outros: "
                 + percentageFormat.format(calculatePercentage(otherRevenue, totalRevenue)) + "%");
+    }
+
+    public static void teste05() {
+        String nome = "Gabriel";
+        System.out.println("Nome: " + nome);
+        System.out.println("Nome invertido: " + reverseString(nome));
     }
 
     public static boolean pertenceAFibonacci(int numero) {
@@ -156,5 +163,13 @@ public class Main {
 
     public static double calculatePercentage(double revenue, double totalRevenue) {
         return (revenue / totalRevenue) * 100;
+    }
+
+    public static String reverseString(String str) {
+        String inverted = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            inverted += str.charAt(i);
+        }
+        return inverted;
     }
 }
